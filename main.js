@@ -77,7 +77,7 @@ function createProductCard(product, isNew = false) {
         </div>
     `;
 
-    // Add event listeners for quick view
+    // Add event listeners
     card.querySelector('.quick-view-btn').addEventListener('click', (e) => {
         e.stopPropagation();
         showQuickView(product);
@@ -88,7 +88,7 @@ function createProductCard(product, isNew = false) {
 
 // Quick view function
 function showQuickView(product) {
-    // Implement quick view modal functionality here
+    // Implement quick view modal functionality 
     console.log('Quick view for:', product.name);
 }
 
