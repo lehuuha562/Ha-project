@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ha's Fashion Project</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+<div class="top-bar">
+    <div class="container">
+        <div class="contact-info">
+            <a href="tel:+84 09 506 957"><i class="fas fa-phone"></i> +84 09 506 957</a>
+            <a href="mailto:support@hasproject.com"><i class="fas fa-envelope"></i> support@hasproject.com</a>
+        </div>
+        <div class="user-actions">
+            <a href="/login"><i class="fas fa-user"></i> Login</a>
+            <a href="/wishlist"><i class="fas fa-heart"></i> Wishlist</a>
+        </div>
+    </div>
+</div>
+
+<!-- Main Header -->
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="logo">Ha's <span>Project</span></h1>
+            </div>
+            <div class="search-section">
+                <form class="search-form">
+                    <input type="search" placeholder="Search for styles..." aria-label="Search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="cart-section">
+                <a href="#" class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Navigation -->
+    <nav class="category-nav">
+        <div class="container">
+            <div class="filter-group">
+                <select id="category-filter" onchange="applyFilters()">
+                    <option value="">All Categories</option>
+                    <option value="t-shirts">T-Shirts</option>
+                    <option value="pants">Pants</option>
+                    <option value="hoodies">Hoodies</option>
+                    <option value="dresses">Dresses</option>
+                    <option value="jackets">Jackets</option>
+                    <option value="shirts">Shirts</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="size-filter" onchange="applyFilters()">
+                    <option value="">All Sizes</option>
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">Extra Large</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="price-filter" onchange="applyFilters()">
+                    <option value="">All Prices</option>
+                    <option value="0-300000">Under 300K₫</option>
+                    <option value="300000-700000">300K₫ - 700K₫</option>
+                    <option value="700000-1000000">700K₫ - 1M₫</option>
+                    <option value="1000000+">Over 1M₫</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select id="sort-filter" onchange="applyFilters()">
+                    <option value="popularity">Most Popular</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Summer Collection 2024</h1>
+                <p>Discover Your Style</p>
+                <button class="cta-button">Shop Now</button>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="new-arrivals">
+            <div class="section-header">
+                <h2 class="section-title">New Arrivals</h2>
+                <p class="section-subtitle">Be the first to wear our latest styles</p>
+            </div>
+            <div class="products-grid" id="new-arrivals">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Seasonal Collection -->
+        <section class="seasonal-collection">
+            <div class="section-header">
+                <h2 class="section-title">Summer Collection</h2>
+                <p class="section-subtitle">Light & breathable styles for the season</p>
+            </div>
+            <div class="products-grid" id="seasonal-products">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="shop-categories">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
+            <div class="category-grid">
+                <!-- Categories will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Best Sellers Section -->
+        <section class="best-sellers">
+            <div class="section-header">
+                <h2 class="section-title">Best Sellers</h2>
+                <p class="section-subtitle">Most loved by our customers</p>
+            </div>
+            <div class="products-grid" id="best-sellers">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Recommended Section -->
+        <section class="recommended-products">
+            <div class="section-header">
+                <h2 class="section-title">Recommended For You</h2>
+                <p class="section-subtitle">Based on your preferences</p>
+            </div>
+            <div class="products-grid" id="recommended-products">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div id="cart-total" class="cart-total"></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 268 Lý Thường Kiệt, Phường 14, Quận 10, Hồ Chí Minh</li>
+                    <li><i class="fas fa-phone"></i> +84 09 506 957</li>
+                    <li><i class="fas fa-envelope"></i> support@hasproject.com</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ha's Fashion Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
